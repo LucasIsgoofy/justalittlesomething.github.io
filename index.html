@@ -21,13 +21,13 @@
       flex-direction: column;
       text-align: center;
       color: #ffffff;
-      overflow-x: hidden; /* Prevent horizontal scroll */
-      overflow-y: auto; /* Allow vertical scroll if content overflows */
+      overflow: auto; /* Allow scrolling */
       position: relative;
+      padding: 10px;
     }
 
     h1 {
-      font-size: 2.5em;
+      font-size: 3em;
       margin-bottom: 20px;
       color: #ff4081;
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
@@ -44,11 +44,11 @@
       }
     }
 
-    /* Adjust heart size to be more responsive */
+    /* Flexible Heart size for responsiveness */
     .heart {
       position: relative;
-      width: 80px;
-      height: 80px;
+      width: 10vw; /* Flexible size based on viewport width */
+      height: 10vw; /* Flexible size based on viewport width */
       background-color: #e91e63;
       transform: rotate(-45deg);
       margin-bottom: 20px;
@@ -59,25 +59,25 @@
     .heart:after {
       content: '';
       position: absolute;
-      width: 80px;
-      height: 80px;
+      width: 10vw; /* Flexible size based on viewport width */
+      height: 10vw; /* Flexible size based on viewport width */
       border-radius: 50%;
       background-color: #e91e63;
     }
 
     .heart:before {
-      top: -40px;
+      top: -5vw;
       left: 0;
     }
 
     .heart:after {
-      left: 40px;
+      left: 5vw;
       top: 0;
     }
 
     .btn {
-      font-size: 1.2em;
-      padding: 12px 25px;
+      font-size: 1.5em;
+      padding: 15px 30px;
       background-color: #ff4081;
       color: white;
       border: none;
@@ -190,8 +190,8 @@
       }
 
       .heart {
-        width: 60px;
-        height: 60px;
+        width: 15vw;
+        height: 15vw;
       }
 
       .love-letter {
@@ -221,8 +221,8 @@
       }
 
       .heart {
-        width: 50px;
-        height: 50px;
+        width: 20vw;
+        height: 20vw;
       }
 
       .love-letter {
@@ -358,4 +358,3 @@
   </script>
 </body>
 </html>
-
