@@ -21,9 +21,8 @@
       flex-direction: column;
       text-align: center;
       color: #ffffff;
-      position: relative;
       padding: 10px;
-      overflow-y: scroll; /* Always show vertical scrollbar */
+      overflow-y: auto;
     }
 
     h1 {
@@ -80,18 +79,6 @@
 
     .btn:active {
       transform: scale(0.9);
-    }
-
-    .response {
-      font-size: 1.5em;
-      margin-top: 20px;
-      color: #ff80ab;
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
-
-    .response.show {
-      opacity: 1;
     }
 
     .confetti {
@@ -220,7 +207,7 @@
   <div class="heart">❤️</div>
   <h1>Be My Valentine, Daniela?</h1>
   <button class="btn" id="yesButton">Yes</button>
-  <button class="btn sad-btn" id="noButton">No</button>
+  <button class="btn" id="noButton">No</button>
 
   <div class="confetti" id="confettiContainer"></div>
 
@@ -327,4 +314,3 @@
   </script>
 </body>
 </html>
-
