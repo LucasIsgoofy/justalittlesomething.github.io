@@ -116,22 +116,6 @@
       opacity: 1;
     }
 
-    .hidden {
-      display: none;
-    }
-
-    @keyframes heartbeat {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.1);
-      }
-      100% {
-        transform: scale(1);
-      }
-    }
-
     /* Confetti Animation */
     .confetti {
       position: absolute;
@@ -172,8 +156,8 @@
       }
     }
 
-    /* Love Letter Style */
-    .love-letter {
+    /* Thank You Message */
+    .thank-you-message {
       font-size: 1.5em;
       padding: 30px;
       background-color: #fff;
@@ -187,13 +171,13 @@
       transition: opacity 2s ease;
     }
 
-    .love-letter h2 {
+    .thank-you-message h2 {
       font-size: 2.5em;
       color: #ff4081;
       margin-bottom: 20px;
     }
 
-    .love-letter p {
+    .thank-you-message p {
       font-size: 1.2em;
       line-height: 1.6;
     }
@@ -208,18 +192,14 @@
   <!-- Confetti Effect -->
   <div class="confetti" id="confettiContainer"></div>
 
-  <!-- Love Letter -->
-  <div id="loveLetter" class="love-letter hidden">
-    <h2>Thank You for Being My Valentine, My Love 💖</h2>
+  <!-- Thank You Message -->
+  <div id="thankYouMessage" class="thank-you-message hidden">
+    <h2>Thank You for Saying Yes, My Love 💖</h2>
     <p>
-      My dearest Daniela, <br><br>
-      From the moment we met, my world has been brighter, and my heart has been filled with love. Every day with you feels like a beautiful adventure, and I can't wait to see what the future holds for us. You are the most amazing person, and I am so incredibly lucky to have you by my side.
+     Daniela, <br><br>
+      I'm so happy you said yes! You're my one and only always, and every day with you is a blessing. You're everything I could ever ask for, and I'm beyond grateful to have you in my life. Let's make every moment together unforgettable.
       <br><br>
-      Thank you for all the joy and love you've brought into my life. I promise to always cherish and adore you, forever and always. You are my one true love, and I will continue to make every moment we share special.
-      <br><br>
-      With all my heart, ❤️
-      <br><br>
-      [Your Name]
+      I love you so much, and I can't wait to see what the future holds for us. Thank you for being you—my true love. ❤️
     </p>
   </div>
 
@@ -300,10 +280,7 @@
       } else {
         document.getElementById("yesButton").textContent = "IT'S CONFIRMED YOU ARE MY VALENTINE!";
         generateConfetti(); // Trigger confetti animation when they say yes
-        setTimeout(() => {
-          // Display the love letter after a delay
-          document.getElementById("loveLetter").classList.remove("hidden");
-        }, 2000); // Show the letter after 2 seconds
+        document.getElementById("thankYouMessage").classList.remove("hidden"); // Show the thank you message
       }
     });
 
