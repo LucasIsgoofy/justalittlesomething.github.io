@@ -17,11 +17,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      height: auto; /* Allow the content to take more space */
       flex-direction: column;
       text-align: center;
       color: #ffffff;
-      overflow: auto; /* Allow scrolling */
+      overflow: auto; /* Enable scrolling if needed */
       position: relative;
       padding: 10px;
     }
@@ -44,11 +44,11 @@
       }
     }
 
-    /* Flexible Heart size for responsiveness */
+    /* Heart styles */
     .heart {
       position: relative;
-      width: 10vw; /* Flexible size based on viewport width */
-      height: 10vw; /* Flexible size based on viewport width */
+      width: 20vw; /* Use viewport width for responsiveness */
+      height: 20vw; /* Keep the aspect ratio */
       background-color: #e91e63;
       transform: rotate(-45deg);
       margin-bottom: 20px;
@@ -59,19 +59,19 @@
     .heart:after {
       content: '';
       position: absolute;
-      width: 10vw; /* Flexible size based on viewport width */
-      height: 10vw; /* Flexible size based on viewport width */
+      width: 20vw;
+      height: 20vw;
       border-radius: 50%;
       background-color: #e91e63;
     }
 
     .heart:before {
-      top: -5vw;
+      top: -10vw;
       left: 0;
     }
 
     .heart:after {
-      left: 5vw;
+      left: 10vw;
       top: 0;
     }
 
@@ -190,8 +190,8 @@
       }
 
       .heart {
-        width: 15vw;
-        height: 15vw;
+        width: 25vw;
+        height: 25vw;
       }
 
       .love-letter {
@@ -221,8 +221,8 @@
       }
 
       .heart {
-        width: 20vw;
-        height: 20vw;
+        width: 30vw;
+        height: 30vw;
       }
 
       .love-letter {
