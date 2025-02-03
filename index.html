@@ -17,11 +17,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: auto; /* Allow the content to take more space */
+      height: auto;
       flex-direction: column;
       text-align: center;
       color: #ffffff;
-      overflow: auto; /* Enable scrolling if needed */
+      overflow: auto;
       position: relative;
       padding: 10px;
     }
@@ -44,13 +44,12 @@
       }
     }
 
-    /* Heart styles */
     .heart {
       position: relative;
-      width: 30vw; /* Use viewport width for responsiveness */
-      max-width: 200px; /* Ensure heart doesn't become too large */
+      width: 30vw;
+      max-width: 200px;
       height: auto;
-      aspect-ratio: 1; /* Ensure it remains proportional */
+      aspect-ratio: 1;
       background-color: #e91e63;
       transform: rotate(-45deg);
       margin-bottom: 20px;
@@ -114,7 +113,6 @@
       opacity: 1;
     }
 
-    /* Confetti Animation */
     .confetti {
       position: absolute;
       top: 0;
@@ -135,7 +133,6 @@
       transform-origin: center;
     }
 
-    /* Heart-shaped confetti */
     .confetti .heart-piece {
       width: 18px;
       height: 18px;
@@ -144,7 +141,6 @@
       animation: confettiFall 3s linear;
     }
 
-    /* Confetti falling effect */
     @keyframes confettiFall {
       0% {
         transform: translateY(-100px) rotate(0deg);
@@ -154,7 +150,6 @@
       }
     }
 
-    /* Love Letter Style */
     .love-letter {
       font-size: 1.2em;
       padding: 25px;
@@ -181,7 +176,6 @@
       line-height: 1.6;
     }
 
-    /* Responsive Design */
     @media (max-width: 500px) {
       h1 {
         font-size: 2em;
@@ -196,7 +190,7 @@
       .heart {
         width: 40vw;
         height: auto;
-        max-width: 150px; /* Make the heart smaller on very small devices */
+        max-width: 150px;
       }
 
       .love-letter {
@@ -213,7 +207,6 @@
       }
     }
 
-    /* Additional responsive handling for the smallest phones */
     @media (max-width: 375px) {
       h1 {
         font-size: 1.8em;
@@ -228,7 +221,7 @@
       .heart {
         width: 50vw;
         height: auto;
-        max-width: 120px; /* Smaller heart on tiny screens */
+        max-width: 120px;
       }
 
       .love-letter {
@@ -252,23 +245,21 @@
   <button class="btn" id="yesButton">Yes</button>
   <button class="btn sad-btn" id="noButton">No</button>
 
-  <!-- Confetti Effect -->
   <div class="confetti" id="confettiContainer"></div>
 
-  <!-- Love Letter -->
   <div id="loveLetter" class="love-letter hidden">
     <h2>Thank You for Saying Yes, Amor</h2>
     <p>
       Daniela, <br><br>
-      I feel incredibly lucky to be your boyfriend. And you saying yes means more to me than words can express, I truly believe that this is just the beginning of something beautiful (just like you). The love and care you give to me means so much, and with you by my side, I feel like I can do anything. I’m excited for all that we’ll create together our memories, challenges, and laughs, because I know we can make it all unforgettable. You are truly the love of my life, and I’ll love you always.
+      I feel incredibly lucky to be your boyfriend. And you saying yes means more to me than words can express, I truly believe that this is just the beginning of something beautiful (just like you). The love and care you give to me means so much, and with you by my side, I feel like I can do anything. I’m excited for all that we’ll create together our memories, challenges, and laughs, because I know we can make it all unforgettable. You are truly the love of my life, and I’ll love you always. <br><br>
+      Sincerely, <br>
+      Your Husband
     </p>
   </div>
 
   <script>
-    // Sound effects
-    const clickSound = new Audio('https://www.soundjay.com/button/beep-07.wav'); // Add your own sound link
+    const clickSound = new Audio('https://www.soundjay.com/button/beep-07.wav');
 
-    // Array of sad messages for the "No" button, but we will change Yes button's text
     const sadMessages = [
       "You're joking, right?",
       "I can't believe it...",
@@ -289,20 +280,18 @@
       "My heart is so happy right now! <3"
     ];
 
-    let sadMessageIndex = 0; // Track the sad messages
-    let yesMessageIndex = 0; // Track the Yes button text messages
-    let yesClicked = false;  // Track whether "Yes" has been clicked
-    let noClicked = false;   // Track whether "No" has been clicked
+    let sadMessageIndex = 0;
+    let yesMessageIndex = 0;
+    let yesClicked = false;
+    let noClicked = false;
 
-    // Function to generate confetti
     function generateConfetti() {
       const confettiContainer = document.getElementById("confettiContainer");
-      confettiContainer.style.display = 'block'; // Show the confetti container
+      confettiContainer.style.display = 'block';
       for (let i = 0; i < 100; i++) {
         let confettiPiece = document.createElement("div");
         confettiPiece.classList.add("piece");
 
-        // Make the confetti heart-shaped
         if (Math.random() < 0.5) {
           confettiPiece.classList.add("heart-piece");
         }
@@ -313,53 +302,46 @@
         confettiContainer.appendChild(confettiPiece);
       }
 
-      // Stop confetti after 3.5 seconds
       setTimeout(() => {
-        confettiContainer.style.display = 'none';  // Hide the confetti container
-        confettiContainer.innerHTML = '';  // Clear the confetti pieces
+        confettiContainer.style.display = 'none';
+        confettiContainer.innerHTML = '';
       }, 3500);
     }
 
-    // Function to handle "Yes" button click
     document.getElementById("yesButton").addEventListener("click", function() {
-      clickSound.play(); // Play click sound
+      clickSound.play();
       if (!yesClicked) {
-        yesClicked = true; // Mark that "Yes" has been clicked
+        yesClicked = true;
       }
 
-      // Change the text on the Yes button dynamically
       if (yesMessageIndex < yesMessages.length) {
         document.getElementById("yesButton").textContent = yesMessages[yesMessageIndex];
         yesMessageIndex++;
       } else {
         document.getElementById("yesButton").textContent = "IT'S CONFIRMED YOU ARE MY VALENTINE!";
-        generateConfetti(); // Trigger confetti animation when they say yes
+        generateConfetti();
         
-        // Delay the love letter display after the confetti animation
         setTimeout(() => {
-          document.getElementById("loveLetter").style.display = 'block'; // Show the love letter after confetti
-        }, 3500); // Delay to match the confetti disappearing
+          document.getElementById("loveLetter").style.display = 'block';
+        }, 3500);
       }
     });
 
-    // Function to handle "No" button click
     document.getElementById("noButton").addEventListener("click", function() {
-      clickSound.play(); // Play click sound
+      clickSound.play();
       if (!noClicked) {
-        noClicked = true; // Mark that "No" has been clicked
+        noClicked = true;
       }
 
       if (sadMessageIndex < sadMessages.length) {
-        // Show the sad messages on the "No" button
         document.getElementById("noButton").textContent = sadMessages[sadMessageIndex];
         sadMessageIndex++;
       } else {
-        // Disable the "No" button and show the final message
         document.getElementById("noButton").textContent = "Button disabled. Now you have to press Yes.";
-        document.getElementById("noButton").disabled = true; // Disable the "No" button
+        document.getElementById("noButton").disabled = true;
       }
 
-      noClicked = true; // Mark that "No" has been clicked
+      noClicked = true;
     });
   </script>
 </body>
