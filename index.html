@@ -21,7 +21,8 @@
       flex-direction: column;
       text-align: center;
       color: #ffffff;
-      overflow: hidden;
+      overflow-x: hidden; /* Prevent horizontal scroll */
+      overflow-y: auto; /* Allow vertical scroll if content overflows */
       position: relative;
     }
 
@@ -43,6 +44,7 @@
       }
     }
 
+    /* Adjust heart size to be more responsive */
     .heart {
       position: relative;
       width: 80px;
@@ -356,3 +358,4 @@
   </script>
 </body>
 </html>
+
