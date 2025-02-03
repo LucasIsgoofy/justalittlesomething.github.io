@@ -17,13 +17,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: auto;
+      height: 100vh;
       flex-direction: column;
       text-align: center;
       color: #ffffff;
-      overflow: auto;
       position: relative;
       padding: 10px;
+      overflow-y: scroll; /* Always show vertical scrollbar */
     }
 
     h1 {
@@ -45,35 +45,9 @@
     }
 
     .heart {
-      position: relative;
-      width: 150px;
-      height: 150px;
-      background-color: #e91e63;
-      transform: rotate(-45deg);
+      font-size: 120px;
       margin-bottom: 20px;
       animation: heartbeat 1.5s ease-in-out infinite;
-    }
-
-    .heart:before,
-    .heart:after {
-      content: '';
-      position: absolute;
-      width: 150px;
-      height: 150px;
-      max-width: 100%;
-      max-height: 100%;
-      border-radius: 50%;
-      background-color: #e91e63;
-    }
-
-    .heart:before {
-      top: -75px;
-      left: 0;
-    }
-
-    .heart:after {
-      left: 75px;
-      top: 0;
     }
 
     @keyframes heartbeat {
@@ -195,10 +169,7 @@
       }
 
       .heart {
-        width: 120px;
-        height: 120px;
-        max-width: 100%;
-        max-height: 100%;
+        font-size: 80px;
       }
 
       .love-letter {
@@ -227,10 +198,7 @@
       }
 
       .heart {
-        width: 100px;
-        height: 100px;
-        max-width: 100%;
-        max-height: 100%;
+        font-size: 60px;
       }
 
       .love-letter {
@@ -249,7 +217,7 @@
   </style>
 </head>
 <body>
-  <div class="heart"></div>
+  <div class="heart">❤️</div>
   <h1>Be My Valentine, Daniela?</h1>
   <button class="btn" id="yesButton">Yes</button>
   <button class="btn sad-btn" id="noButton">No</button>
@@ -355,3 +323,4 @@
   </script>
 </body>
 </html>
+
