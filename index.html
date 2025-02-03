@@ -269,6 +269,11 @@
         confettiPiece.style.animationDelay = `${Math.random() * 1}s`;
         confettiContainer.appendChild(confettiPiece);
       }
+
+      // Stop confetti after 3.5 seconds
+      setTimeout(() => {
+        confettiContainer.innerHTML = '';  // Clear the confetti
+      }, 3500);
     }
 
     // Function to handle "Yes" button click
