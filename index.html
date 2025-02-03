@@ -94,16 +94,6 @@
       transform: scale(0.9);
     }
 
-    .sad-btn {
-      background-color: #9e1b32;
-      color: #f1f1f1;
-    }
-
-    .sad-btn:hover {
-      transform: scale(1.1);
-      background-color: #f44336;
-    }
-
     .response {
       font-size: 2em;
       margin-top: 20px;
@@ -156,8 +146,8 @@
       }
     }
 
-    /* Thank You Message */
-    .thank-you-message {
+    /* Love Letter Style */
+    .love-letter {
       font-size: 1.5em;
       padding: 30px;
       background-color: #fff;
@@ -171,13 +161,13 @@
       transition: opacity 2s ease;
     }
 
-    .thank-you-message h2 {
+    .love-letter h2 {
       font-size: 2.5em;
       color: #ff4081;
       margin-bottom: 20px;
     }
 
-    .thank-you-message p {
+    .love-letter p {
       font-size: 1.2em;
       line-height: 1.6;
     }
@@ -185,21 +175,19 @@
 </head>
 <body>
   <div class="heart"></div>
-  <h1>Be My Valentine, Daniela? 💖</h1>
+  <h1>Be My Valentine, Daniela?</h1>
   <button class="btn" id="yesButton">Yes</button>
   <button class="btn sad-btn" id="noButton">No</button>
 
   <!-- Confetti Effect -->
   <div class="confetti" id="confettiContainer"></div>
 
-  <!-- Thank You Message -->
-  <div id="thankYouMessage" class="thank-you-message hidden">
-    <h2>Thank You for Saying Yes, My Love 💖</h2>
+  <!-- Love Letter -->
+  <div id="loveLetter" class="love-letter hidden">
+    <h2>Thank You for Saying Yes, Amor</h2>
     <p>
-     Daniela, <br><br>
-      I'm so happy you said yes! You're my one and only always, and every day with you is a blessing. You're everything I could ever ask for, and I'm beyond grateful to have you in my life. Let's make every moment together unforgettable.
-      <br><br>
-      I love you so much, and I can't wait to see what the future holds for us. Thank you for being you—my true love. ❤️
+      Daniela, <br><br>
+      I feel incredibly lucky to be your boyfriend. And you saying yes means more to me than words can express, I truly believe that this is just the beginning of something beautiful (just like you). The love and care you give to me means so much, and with you by my side, I feel like I can do anything. I’m excited for all that we’ll create together our memories, challenges, and laughs, because I know we can make it all unforgettable. You are truly the love of my life, and I’ll love you always.
     </p>
   </div>
 
@@ -209,13 +197,13 @@
 
     // Array of sad messages for the "No" button, but we will change Yes button's text
     const sadMessages = [
-      "You're joking right?",
+      "You're joking, right?",
       "I can't believe it...",
       "You're breaking my heart!",
       "I thought we were meant to be...",
       "Why would you do this to me?",
       "I'm so heartbroken... 💔",
-      "You're really gonna make me cry, huh? 😢",
+      "You're really going to make me cry, huh? 😢",
       "Do you even love me?"
     ];
 
@@ -225,7 +213,7 @@
       "I can't believe you're saying yes! 😍",
       "I knew you'd say yes! 😘",
       "YAYYY! You're my Valentine! 💖",
-      "My heart is so happy right now! 💖"
+      "My heart is so happy right now! <3"
     ];
 
     let sadMessageIndex = 0; // Track the sad messages
@@ -240,12 +228,12 @@
       for (let i = 0; i < 100; i++) {
         let confettiPiece = document.createElement("div");
         confettiPiece.classList.add("piece");
-        
+
         // Make the confetti heart-shaped
         if (Math.random() < 0.5) {
           confettiPiece.classList.add("heart-piece");
         }
-        
+
         confettiPiece.style.left = `${Math.random() * 100}%`;
         confettiPiece.style.animationDuration = `${Math.random() * 2 + 2}s`;
         confettiPiece.style.animationDelay = `${Math.random() * 1}s`;
@@ -262,13 +250,6 @@
     // Function to handle "Yes" button click
     document.getElementById("yesButton").addEventListener("click", function() {
       clickSound.play(); // Play click sound
-      if (noClicked && yesMessageIndex === yesMessages.length) {
-        // Only change text to "Too late" if all Yes messages have been cycled through and No was clicked
-        document.getElementById("yesButton").textContent = "Too late, you already clicked No.";
-        document.getElementById("yesButton").disabled = true; // Disable the "Yes" button
-        return; // Prevent further changes to the "Yes" button
-      }
-
       if (!yesClicked) {
         yesClicked = true; // Mark that "Yes" has been clicked
       }
@@ -280,20 +261,17 @@
       } else {
         document.getElementById("yesButton").textContent = "IT'S CONFIRMED YOU ARE MY VALENTINE!";
         generateConfetti(); // Trigger confetti animation when they say yes
-        document.getElementById("thankYouMessage").classList.remove("hidden"); // Show the thank you message
+        
+        // Delay the love letter display after the confetti animation
+        setTimeout(() => {
+          document.getElementById("loveLetter").style.display = 'block'; // Show the love letter after confetti
+        }, 3500); // Delay to match the confetti disappearing
       }
     });
 
     // Function to handle "No" button click
     document.getElementById("noButton").addEventListener("click", function() {
       clickSound.play(); // Play click sound
-      if (yesClicked && sadMessageIndex === sadMessages.length) {
-        // Only show "You already pressed Yes" if all No messages have been cycled through and Yes was clicked
-        document.getElementById("noButton").textContent = "You already pressed Yes.";
-        document.getElementById("noButton").disabled = true; // Disable the "No" button
-        return; // Prevent further changes to the "No" button
-      }
-
       if (!noClicked) {
         noClicked = true; // Mark that "No" has been clicked
       }
@@ -305,7 +283,7 @@
       } else {
         // Disable the "No" button and show the final message
         document.getElementById("noButton").textContent = "Button disabled. Now you have to press Yes.";
-        document.getElementById("noButton").disabled = true; // Disable button after too many "No"s
+        document.getElementById("noButton").disabled = true; // Disable the "No" button
       }
 
       noClicked = true; // Mark that "No" has been clicked
@@ -313,4 +291,5 @@
   </script>
 </body>
 </html>
+
 
