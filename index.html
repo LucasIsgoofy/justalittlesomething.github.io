@@ -83,6 +83,8 @@
       cursor: pointer;
       transition: transform 0.3s ease, background-color 0.3s ease;
       margin-top: 20px;
+      width: 80%;
+      max-width: 400px;
     }
 
     .btn:hover {
@@ -159,6 +161,7 @@
       margin-top: 30px;
       display: none;
       transition: opacity 2s ease;
+      width: 90%;
     }
 
     .love-letter h2 {
@@ -170,6 +173,28 @@
     .love-letter p {
       font-size: 1.2em;
       line-height: 1.6;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      .btn {
+        font-size: 1.2em;
+        padding: 12px 25px;
+      }
+
+      .love-letter {
+        font-size: 1.2em;
+        padding: 20px;
+      }
+
+      .heart {
+        width: 80px;
+        height: 80px;
+      }
     }
   </style>
 </head>
