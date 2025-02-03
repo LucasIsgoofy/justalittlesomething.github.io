@@ -46,36 +46,43 @@
 
     .heart {
       position: relative;
-      width: 30vw;
-      height: 30vw;
-      max-width: 200px;
-      max-height: 200px;
+      width: 150px;
+      height: 150px;
       background-color: #e91e63;
       transform: rotate(-45deg);
       margin-bottom: 20px;
-      animation: heartbeat 1.5s infinite;
+      animation: heartbeat 1.5s ease-in-out infinite;
     }
 
     .heart:before,
     .heart:after {
       content: '';
       position: absolute;
-      width: 30vw;
-      height: 30vw;
-      max-width: 200px;
-      max-height: 200px;
+      width: 150px;
+      height: 150px;
+      max-width: 100%;
+      max-height: 100%;
       border-radius: 50%;
       background-color: #e91e63;
     }
 
     .heart:before {
-      top: -15vw;
+      top: -75px;
       left: 0;
     }
 
     .heart:after {
-      left: 15vw;
+      left: 75px;
       top: 0;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
     }
 
     .btn {
@@ -188,10 +195,10 @@
       }
 
       .heart {
-        width: 40vw;
-        height: 40vw;
-        max-width: 150px;
-        max-height: 150px;
+        width: 120px;
+        height: 120px;
+        max-width: 100%;
+        max-height: 100%;
       }
 
       .love-letter {
@@ -220,10 +227,10 @@
       }
 
       .heart {
-        width: 50vw;
-        height: 50vw;
-        max-width: 120px;
-        max-height: 120px;
+        width: 100px;
+        height: 100px;
+        max-width: 100%;
+        max-height: 100%;
       }
 
       .love-letter {
