@@ -45,7 +45,7 @@
     }
 
     .heart {
-      font-size: 120px;
+      font-size: 80px;
       margin-bottom: 20px;
       animation: heartbeat 1.5s ease-in-out infinite;
     }
@@ -169,7 +169,7 @@
       }
 
       .heart {
-        font-size: 80px;
+        font-size: 60px;
       }
 
       .love-letter {
@@ -198,7 +198,7 @@
       }
 
       .heart {
-        font-size: 60px;
+        font-size: 50px;
       }
 
       .love-letter {
@@ -297,7 +297,11 @@
       } else {
         document.getElementById("yesButton").textContent = "IT'S CONFIRMED YOU ARE MY VALENTINE!";
         generateConfetti();
-        
+
+        // Remove the heart and the "No" button, and show the letter
+        document.querySelector(".heart").style.display = 'none'; 
+        document.getElementById("noButton").style.display = 'none'; 
+
         setTimeout(() => {
           document.getElementById("loveLetter").style.display = 'block';
         }, 3500);
